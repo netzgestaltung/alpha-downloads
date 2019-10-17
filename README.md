@@ -1,6 +1,8 @@
 ![Version](https://img.shields.io/wordpress/plugin/dt/delightful-downloads.svg) ![Rating](https://img.shields.io/wordpress/plugin/r/delightful-downloads.svg)
 
-# Alpha Downloads is a Fork of [Delightful Downloads](https://de.wordpress.org/plugins/delightful-downloads/) because i needed new Features and it had no update since 3 Years. The name "alpha" is derived from the clients company name.
+# Alpha Downloads 
+
+Alpha Downloads is a Fork of [Delightful Downloads](https://de.wordpress.org/plugins/delightful-downloads/) because i needed new Features and it had no update since 3 Years. The name "alpha" is derived from the clients company name.
 
 ## Bugs
 
