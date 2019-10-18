@@ -17,16 +17,8 @@ Anyone is welcome to contribute to Delightful Downloads. There are various ways 
 
 ## Development
 
-Development should be performed on the __develop__ branch. After cloning the __develop__ branch to your local machine you should run:
+Development should be performed on the __develop__ branch.
 
-`npm install`
+You ned PHP, CSS and JS Knowledge. If you prefer a build system, feel free to create it.
 
-Followed by:
-
-`grunt`
-
-This will build the required CSS files.
-
-If you require the localisation files you will need to install the [Transifex client](http://docs.transifex.com/client/setup/) and then run:
-
-`grunt translate`
+The existing one did not work for me so i removed it by now.
