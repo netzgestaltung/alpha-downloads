@@ -1,0 +1,989 @@
+/* Shortcode Modal Window */
+/* line 2, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal {
+  z-index: 100000;
+}
+/* line 6, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content h1 {
+  margin-bottom: 24px;
+}
+/* line 10, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content p {
+  font-size: 13px;
+  color: #333;
+}
+/* line 15, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content p.clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 21, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content label.column-2 {
+  display: block;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+/* line 28, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content label.column-2:nth-child(1) {
+  padding-right: 10px;
+}
+/* line 32, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content label.column-2:nth-child(2) {
+  padding-left: 10px;
+}
+/* line 36, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content label span {
+  line-height: 24px;
+}
+/* line 40, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content input {
+  display: block;
+  width: 100%;
+  border: 1px solid #aaa;
+}
+/* line 46, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content .buttons {
+  margin: 24px -16px 0;
+  padding: 12px 16px;
+  border-top: 1px solid #ddd;
+  background: #fcfcfc;
+}
+/* line 52, ../sass/alpha-downloads-admin.scss */
+#alpha-shortcode-modal .alpha-modal-content .buttons a {
+  margin-right: 5px;
+}
+
+/* All Downloads
+--------------------------------------------- */
+/* line 64, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .view-switch {
+  display: none;
+}
+/* line 69, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .inline-edit-col-left, .post-type-alpha_download .inline-edit-col-right {
+  float: none !important;
+  width: 50% !important;
+  margin-top: 0 !important;
+}
+/* line 74, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .inline-edit-col-left .inline-edit-col, .post-type-alpha_download .inline-edit-col-right .inline-edit-col {
+  border: none !important;
+}
+/* line 79, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .inline-edit-save a.save {
+  float: none !important;
+  margin-left: 1em;
+}
+/* line 87, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .inline-edit-group em, .post-type-alpha_download .inline-edit-group .inline-edit-private {
+  display: none;
+}
+/* line 92, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .blank {
+  color: #ccc;
+  cursor: default;
+}
+/* line 98, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download th.column-downloads {
+  padding-right: 20px;
+}
+/* line 101, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download th.column-downloads a {
+  display: inline;
+}
+/* line 104, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download th.column-downloads a span {
+  float: right;
+}
+/* line 108, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download th.column-downloads a span.sorting-indicator {
+  margin-right: 5px;
+}
+/* line 114, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-downloads {
+  text-align: right;
+  padding-right: 20px;
+}
+/* line 120, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-members_only, .post-type-alpha_download .column-open_browser {
+  width: 30px;
+  text-align: center;
+}
+/* line 124, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-members_only .icon, .post-type-alpha_download .column-open_browser .icon {
+  display: inline-block;
+  float: none;
+  width: 1em;
+  height: 1em;
+  margin-top: -4px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+/* line 133, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-members_only .icon:before, .post-type-alpha_download .column-open_browser .icon:before {
+  content: '\f110';
+  font: normal 1em 'dashicons';
+  speak: none;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 144, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-open_browser .icon:before {
+  content: '\f472';
+}
+/* line 148, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download td.column-members_only, .post-type-alpha_download td.column-open_browser {
+  color: #ccc;
+}
+/* line 152, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-members_only .true, .post-type-alpha_download .column-members_only .false,
+.post-type-alpha_download .column-open_browser .true, .post-type-alpha_download .column-open_browser .false {
+  display: inline-block;
+  float: none;
+  color: #555;
+}
+/* line 158, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-members_only .true:before, .post-type-alpha_download .column-members_only .false:before,
+.post-type-alpha_download .column-open_browser .true:before, .post-type-alpha_download .column-open_browser .false:before {
+  content: '\f147';
+  font: normal 1.2em 'dashicons';
+  speak: none;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 169, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download .column-members_only .false:before, .post-type-alpha_download .column-open_browser .false:before {
+  content: '\f335';
+}
+
+/* Taxonomy pages */
+/* line 176, ../sass/alpha-downloads-admin.scss */
+.taxonomy-ddownload_category .row-actions .view, .taxonomy-ddownload_tag .row-actions .view {
+  display: none;
+}
+
+/* Media Button */
+/* line 181, ../sass/alpha-downloads-admin.scss */
+#alpha-media-button span.wp-media-buttons-icon:before {
+  content: "\f316" !important;
+  font: normal 18px/1 'dashicons';
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dashboard
+--------------------------------------------- */
+/* line 191, ../sass/alpha-downloads-admin.scss */
+#ddownload-count {
+  margin: -11px 0 0;
+}
+/* line 194, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul {
+  margin: 0;
+  overflow: hidden;
+}
+/* line 198, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul li {
+  display: block;
+  margin: 0;
+  padding: 20px 0;
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  text-align: center;
+}
+/* line 208, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul li .count {
+  display: block;
+  font-size: 32px;
+  font-weight: lighter;
+  line-height: 1.5;
+  color: #2ea2cc;
+}
+/* line 216, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul li .label {
+  display: block;
+  color: #ccc;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+/* line 224, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul li:nth-of-type(odd) {
+  border-right: 1px dotted #eee;
+}
+/* line 228, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul li:nth-of-type(-n+2) {
+  padding-top: 40px;
+}
+/* line 232, ../sass/alpha-downloads-admin.scss */
+#ddownload-count ul li:nth-of-type(n+3) {
+  padding-bottom: 40px;
+}
+
+/* line 238, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular {
+  margin: 0;
+}
+/* line 241, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular h4 {
+  position: relative;
+  margin: 0 -12px !important;
+  padding: 8px 12px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+/* line 249, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol {
+  margin: 0 -12px;
+  list-style: none;
+}
+/* line 253, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li {
+  margin: 0;
+  color: #777;
+}
+/* line 257, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li a {
+  display: block;
+  padding: 8px 12px;
+}
+/* line 262, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li .position {
+  display: inline-block;
+  margin-right: 1em;
+  color: #777;
+}
+/* line 268, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li .count, #ddownload-popular ol li .percentage {
+  float: right;
+}
+/* line 272, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li:hover {
+  background: #f2f2f2;
+}
+/* line 277, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li:nth-child(odd) {
+  background: #fafafa;
+}
+/* line 280, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular ol li:nth-child(odd):hover {
+  background: #f7f7f7;
+}
+/* line 286, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular .sub {
+  margin: 0 -12px;
+  padding: 11px 12px 0;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+}
+/* line 292, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular .sub #popular-downloads-dropdown, #ddownload-popular .sub .spinner {
+  float: right;
+}
+/* line 296, ../sass/alpha-downloads-admin.scss */
+#ddownload-popular .sub .error {
+  margin: 0;
+  line-height: 28px;
+  color: #dd3d36;
+}
+
+/* Settings Page
+--------------------------------------------- */
+/* line 308, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .nav-tab-wrapper {
+  margin-bottom: 0;
+}
+/* line 311, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .nav-tab-wrapper .nav-tab:focus {
+  box-shadow: none;
+}
+/* line 316, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .alpha-sub-option {
+  margin-top: 30px;
+}
+/* line 320, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings label {
+  margin-right: 12px;
+}
+/* line 324, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .description {
+  max-width: 600px;
+}
+/* line 328, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .status-container {
+  margin-top: 12px;
+}
+/* line 331, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .status-container .error {
+  color: #a00;
+  font-style: italic;
+}
+/* line 337, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .status {
+  display: inline-block;
+  padding: 3px 6px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 345, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .status.connected {
+  background: #32cd32;
+}
+/* line 349, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings .status.disconnected {
+  background: red;
+}
+
+/* line 355, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-main {
+  float: left;
+  width: 75%;
+  padding-right: 20px;
+  padding-top: 1em;
+  box-sizing: border-box;
+}
+
+/* line 363, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar {
+  float: left;
+  width: 25%;
+  border-left: 1px solid #ccc;
+  padding-top: 1em;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+/* line 371, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version {
+  margin: -1em 0 0 -20px;
+  padding: 1.33em 20px;
+  background: #32373c;
+  color: #b4b9be;
+}
+/* line 377, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version h4 {
+  margin: 0 0 1.33em;
+  color: #fff;
+}
+/* line 382, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+/* line 387, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version label {
+  display: block;
+  margin-bottom: 6px;
+}
+/* line 392, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version input, .alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version button {
+  display: block;
+  width: 100%;
+  margin-bottom: 13px;
+}
+/* line 398, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version a {
+  color: #5fbc3a;
+}
+/* line 401, ../sass/alpha-downloads-admin.scss */
+.alpha_download_page_alpha_settings #alpha-settings-sidebar .pro-version a:hover {
+  color: #81d742;
+}
+
+/* line 408, ../sass/alpha-downloads-admin.scss */
+.alpha-settings-textarea {
+  width: 50%;
+  height: 200px;
+}
+
+/* line 413, ../sass/alpha-downloads-admin.scss */
+.alpha-form-container {
+  margin: -6px -12px -12px;
+}
+
+/* line 417, ../sass/alpha-downloads-admin.scss */
+.alpha-form-group {
+  padding: 15px 10px;
+}
+/* line 420, ../sass/alpha-downloads-admin.scss */
+.alpha-form-group:last-of-type {
+  border-bottom: none;
+}
+/* line 424, ../sass/alpha-downloads-admin.scss */
+.alpha-form-group .alpha-label {
+  display: block;
+  color: #23282d;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+  padding: 0;
+  margin: 0 0 12px;
+  vertical-align: text-bottom;
+}
+/* line 435, ../sass/alpha-downloads-admin.scss */
+.alpha-form-group select {
+  width: 100%;
+}
+/* line 439, ../sass/alpha-downloads-admin.scss */
+.alpha-form-group .description {
+  margin: 6px 0 0;
+}
+
+/* Support Page */
+/* line 445, ../sass/alpha-downloads-admin.scss */
+#alpha_support {
+  width: 100%;
+  height: 500px;
+  resize: vertical;
+}
+
+/* Statistics Page
+--------------------------------------------- */
+/* line 457, ../sass/alpha-downloads-admin.scss */
+#alpha-stats-export .left, #alpha-stats-export .right {
+  float: left;
+  width: 50%;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+/* line 463, ../sass/alpha-downloads-admin.scss */
+#alpha-stats-export .left label, #alpha-stats-export .right label {
+  display: block;
+  font-weight: bold;
+  color: #000;
+}
+/* line 469, ../sass/alpha-downloads-admin.scss */
+#alpha-stats-export .left input, #alpha-stats-export .right input {
+  width: 100%;
+}
+/* line 474, ../sass/alpha-downloads-admin.scss */
+#alpha-stats-export .left {
+  padding-right: 8px;
+}
+/* line 478, ../sass/alpha-downloads-admin.scss */
+#alpha-stats-export .right {
+  padding-left: 8px;
+}
+
+/* Admin Modal Windows
+--------------------------------------------- */
+/* line 485, ../sass/alpha-downloads-admin.scss */
+.alpha-modal {
+  position: fixed;
+  top: 60px;
+  padding: 0 16px;
+  background: #fff;
+  z-index: 16000;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+/* line 496, ../sass/alpha-downloads-admin.scss */
+.alpha-modal .alpha-modal-close {
+  position: absolute;
+  text-decoration: none;
+  top: 12px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  z-index: 1000;
+}
+/* line 505, ../sass/alpha-downloads-admin.scss */
+.alpha-modal .alpha-modal-close span.media-modal-icon {
+  display: block;
+  margin: 8px auto 0;
+  width: 15px;
+  height: 15px;
+  background-image: none;
+}
+/* line 513, ../sass/alpha-downloads-admin.scss */
+.alpha-modal .alpha-modal-close span.media-modal-icon:before {
+  content: '\f158';
+  font: normal 20px/1 'dashicons';
+  speak: none;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #666;
+}
+/* line 524, ../sass/alpha-downloads-admin.scss */
+.alpha-modal .alpha-modal-close:hover span.media-modal-icon:before {
+  color: #0099d5;
+}
+/* line 528, ../sass/alpha-downloads-admin.scss */
+.alpha-modal h1 {
+  margin: 0 -16px;
+  padding: 0 16px;
+  border-bottom: 1px solid #ddd;
+  background: #fcfcfc;
+  font-size: 22px;
+  line-height: 60px;
+}
+
+/* line 538, ../sass/alpha-downloads-admin.scss */
+#alpha-modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: .7;
+  z-index: 15999;
+}
+
+/* Add/Edit Download Screen
+--------------------------------------------- */
+/* line 555, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download #titlediv {
+  margin-bottom: 20px;
+}
+/* line 559, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download #post-visibility-select p {
+  margin-top: 0;
+}
+/* line 564, ../sass/alpha-downloads-admin.scss */
+.post-type-alpha_download #visibility-radio-private, .post-type-alpha_download label[for="visibility-radio-private"] {
+  display: none;
+}
+
+/* Admin Add Download */
+/* line 570, ../sass/alpha-downloads-admin.scss */
+#alpha-new-download {
+  padding: 60px 0;
+  text-align: center;
+}
+/* line 574, ../sass/alpha-downloads-admin.scss */
+#alpha-new-download .button {
+  display: inline-block;
+  width: 180px;
+  margin: 10px 5px;
+  height: auto;
+  padding: 16px 0;
+  font-size: 16px;
+}
+
+/* Existing Download */
+/* line 585, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download {
+  margin: -6px -12px -12px;
+  overflow: hidden;
+}
+/* line 589, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .left-panel, #alpha-existing-download .right-panel {
+  float: left;
+  box-sizing: border-box;
+  padding: 30px 20px;
+}
+/* line 595, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .left-panel {
+  width: 33%;
+  margin-right: -1px;
+  border-right: 1px solid #ddd;
+  text-align: center;
+}
+/* line 602, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .right-panel {
+  width: 67%;
+  border-left: 1px solid #ddd;
+}
+/* line 607, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .footer {
+  padding: 10px 12px;
+  border-top: 1px solid #ddd;
+  background: #f5f5f5;
+  line-height: 28px;
+  clear: both;
+}
+/* line 614, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .footer .button {
+  margin-left: 5px;
+}
+/* line 618, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .footer .delete {
+  float: right;
+  text-decoration: none;
+  color: #a00;
+}
+/* line 623, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .footer .delete:hover {
+  color: #f00;
+}
+/* line 629, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-icon {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 1.4em;
+}
+/* line 634, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-icon img {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 0;
+}
+/* line 642, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-name {
+  position: relative;
+  font-weight: bold;
+}
+/* line 647, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-size {
+  margin-bottom: 1.4em;
+  color: #666;
+}
+/* line 654, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-status .status {
+  display: inline-block;
+  float: none;
+}
+/* line 659, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-status .status:before {
+  font: normal 20px 'dashicons';
+  speak: none;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 667, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-status .status.local:before {
+  content: '\f147';
+  font-size: 22px;
+  color: #0a0;
+}
+/* line 673, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-status .status.remote:before {
+  content: '\f103';
+  font-size: 16px;
+  color: #0a0;
+}
+/* line 679, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .file-status .status.warning:before {
+  content: '\f348';
+  font-size: 18px;
+  color: #ffba00;
+}
+/* line 686, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .form-table {
+  margin: -20px 0;
+}
+/* line 689, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .form-table th {
+  width: auto;
+  padding-right: 30px;
+  white-space: nowrap;
+}
+/* line 695, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .form-table td {
+  width: 100%;
+  padding-right: 0;
+}
+/* line 700, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .form-table .regular-text {
+  width: 100px;
+}
+/* line 704, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .form-table label {
+  margin-right: 12px;
+}
+/* line 709, ../sass/alpha-downloads-admin.scss */
+#alpha-existing-download .alpha-sub-option {
+  margin-top: 30px;
+}
+
+/* Upload Modal */
+/* line 716, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal {
+  /* Progress Bar */
+}
+/* line 718, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area-container {
+  position: relative;
+  display: table;
+  width: 100%;
+  margin-top: 1em;
+}
+/* line 725, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area {
+  display: table-cell;
+  height: 200px;
+  border: 4px dashed #bbb;
+  vertical-align: middle;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+/* line 736, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area p {
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+  color: #aaa;
+}
+/* line 743, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area .drag-drop-info {
+  font-size: 20px;
+}
+/* line 747, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area #alpha-progress-percent {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  opacity: .5;
+}
+/* line 757, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  display: none;
+  width: 100%;
+  font-size: 48px;
+  line-height: 1;
+  text-align: center;
+}
+/* line 767, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area.uploading {
+  height: 100px;
+  border: 4px solid #bbb;
+}
+/* line 771, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area.uploading p {
+  display: none;
+}
+/* line 775, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  display: block;
+}
+/* line 779, ../sass/alpha-downloads-admin.scss */
+#alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-text {
+  display: block;
+}
+
+/* line 785, ../sass/alpha-downloads-admin.scss */
+#alpha-progress-error {
+  color: red;
+  font-style: italic;
+}
+
+/* Existing Modal */
+/* line 793, ../sass/alpha-downloads-admin.scss */
+#alpha-select-modal #alpha-file-url {
+  padding: 5px 5px 6px;
+}
+/* line 797, ../sass/alpha-downloads-admin.scss */
+#alpha-select-modal #alpha-file-browser {
+  box-sizing: border-box;
+  width: 99%;
+  max-height: 200px;
+  margin: 1px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fcfcfc;
+  overflow: auto;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+  -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+/* Add-ons
+--------------------------------------------- */
+/* line 816, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1368px;
+  margin: 20px -20px -20px 0;
+}
+/* line 822, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container .item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 15px 15px 60px;
+  margin: 0 20px 20px 0;
+  width: 320px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+/* line 831, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container .item .action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background: #f5f5f5;
+}
+/* line 842, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container a {
+  text-decoration: none;
+  -webkit-transition: opacity .3s;
+  -moz-transition: opacity .3s;
+  -o-transition: opacity .3s;
+  transition: opacity .3s;
+}
+/* line 850, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container a:hover {
+  opacity: .8;
+}
+/* line 854, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container img {
+  margin: -16px -16px 0;
+  width: 320px;
+  height: auto;
+}
+/* line 860, ../sass/alpha-downloads-admin.scss */
+.alpha-addons-container h3 {
+  font-size: 14px;
+}
+
+/* line 866, ../sass/alpha-downloads-admin.scss */
+input.copy-to-clipboard {
+  width: 100%;
+  max-width: 300px;
+  margin: 0;
+  padding: 6px 10px;
+  border: none;
+  box-shadow: none;
+  font-family: "Courier New", Courier, mono;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+/* line 878, ../sass/alpha-downloads-admin.scss */
+input.copy-to-clipboard + .description {
+  margin-top: 5px;
+}
+
+/* Theme Colors
+--------------------------------------------- */
+/* Fresh (Default) */
+/* line 888, ../sass/alpha-downloads-admin.scss */
+.admin-color-fresh #ddownload-count .count,
+.admin-color-fresh #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #04a4cc;
+}
+/* line 893, ../sass/alpha-downloads-admin.scss */
+.admin-color-fresh #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #04a4cc;
+}
+/* line 896, ../sass/alpha-downloads-admin.scss */
+.admin-color-fresh #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #04a4cc;
+}
+
+/* Light */
+/* line 905, ../sass/alpha-downloads-admin.scss */
+.admin-color-light #ddownload-count .count,
+.admin-color-light #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #04a4cc;
+}
+/* line 910, ../sass/alpha-downloads-admin.scss */
+.admin-color-light #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #04a4cc;
+}
+/* line 913, ../sass/alpha-downloads-admin.scss */
+.admin-color-light #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #04a4cc;
+}
+
+/* Blue */
+/* line 922, ../sass/alpha-downloads-admin.scss */
+.admin-color-blue #ddownload-count .count,
+.admin-color-blue #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #52accc;
+}
+/* line 927, ../sass/alpha-downloads-admin.scss */
+.admin-color-blue #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #52accc;
+}
+/* line 930, ../sass/alpha-downloads-admin.scss */
+.admin-color-blue #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #52accc;
+}
+
+/* Coffee */
+/* line 939, ../sass/alpha-downloads-admin.scss */
+.admin-color-coffee #ddownload-count .count,
+.admin-color-coffee #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #c7a589;
+}
+/* line 944, ../sass/alpha-downloads-admin.scss */
+.admin-color-coffee #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #c7a589;
+}
+/* line 947, ../sass/alpha-downloads-admin.scss */
+.admin-color-coffee #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #c7a589;
+}
+
+/* Ectoplasm */
+/* line 956, ../sass/alpha-downloads-admin.scss */
+.admin-color-ectoplasm #ddownload-count .count,
+.admin-color-ectoplasm #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #a3b745;
+}
+/* line 961, ../sass/alpha-downloads-admin.scss */
+.admin-color-ectoplasm #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #a3b745;
+}
+/* line 964, ../sass/alpha-downloads-admin.scss */
+.admin-color-ectoplasm #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #a3b745;
+}
+
+/* Midnight */
+/* line 973, ../sass/alpha-downloads-admin.scss */
+.admin-color-midnight #ddownload-count .count,
+.admin-color-midnight #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #e14d43;
+}
+/* line 978, ../sass/alpha-downloads-admin.scss */
+.admin-color-midnight #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #e14d43;
+}
+/* line 981, ../sass/alpha-downloads-admin.scss */
+.admin-color-midnight #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #e14d43;
+}
+
+/* Ocean */
+/* line 990, ../sass/alpha-downloads-admin.scss */
+.admin-color-ocean #ddownload-count .count,
+.admin-color-ocean #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #9ebaa0;
+}
+/* line 995, ../sass/alpha-downloads-admin.scss */
+.admin-color-ocean #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #9ebaa0;
+}
+/* line 998, ../sass/alpha-downloads-admin.scss */
+.admin-color-ocean #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #9ebaa0;
+}
+
+/* Sunrise */
+/* line 1007, ../sass/alpha-downloads-admin.scss */
+.admin-color-sunrise #ddownload-count .count,
+.admin-color-sunrise #alpha-upload-modal #alpha-drag-drop-area #alpha-progress-text {
+  color: #dd823b;
+}
+/* line 1012, ../sass/alpha-downloads-admin.scss */
+.admin-color-sunrise #alpha-upload-modal #alpha-drag-drop-area.uploading {
+  border-color: #dd823b;
+}
+/* line 1015, ../sass/alpha-downloads-admin.scss */
+.admin-color-sunrise #alpha-upload-modal #alpha-drag-drop-area.uploading #alpha-progress-percent {
+  background: #dd823b;
+}

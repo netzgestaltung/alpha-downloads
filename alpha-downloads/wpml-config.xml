@@ -1,0 +1,16 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="ignore">_alpha_log_agent</custom-field>
+        <custom-field action="ignore">_alpha_log_download</custom-field>
+        <custom-field action="ignore">_alpha_log_ip</custom-field>
+    </custom-fields>
+    <custom-types>
+        <custom-type translate="0">alpha_download</custom-type>
+        <custom-type translate="0">alpha_log</custom-type>   
+    </custom-types>
+    <admin-texts>
+        <key name="alpha-downloads">
+            <key name="default_text" />
+        </key>
+    </admin-texts>
+</wpml-config>
