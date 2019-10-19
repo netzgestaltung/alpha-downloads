@@ -603,9 +603,7 @@ function alpha_get_file_mime( $path ) {
  * @return string Value of file extension.
  */
 function alpha_get_file_ext( $path ) {
-	
 	$file = wp_check_filetype( $path );
-	
 	return $file['ext'];
 }
 

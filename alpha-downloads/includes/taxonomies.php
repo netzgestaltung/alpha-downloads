@@ -60,8 +60,8 @@ function alpha_download_taxonomies() {
 	$tag_args = array(
 		'labels'			=> apply_filters( 'alpha_ddownload_tag_labels', $labels ),
 		'public'			=> true,
-		'show_in_nav_menus'	=> false,
-		'show_tag_cloud'	=> false,
+		'show_in_nav_menus'	=> true,
+		'show_tag_cloud'	=> true,
 		'show_admin_column'	=> true,
 		'hierarchical'		=> false
 	);

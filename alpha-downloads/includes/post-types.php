@@ -36,7 +36,7 @@ function alpha_download_post_type() {
 
 	$args = array(
 		'labels'          => apply_filters( 'alpha_ddownload_labels', $labels ),
-		'public'          => true,
+		'public'          => false,
 		'show_ui'         => true,
 		'show_in_menu'    => true,
 		'menu_icon'       => 'dashicons-download',

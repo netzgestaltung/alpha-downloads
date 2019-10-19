@@ -11,6 +11,7 @@ Domain Path: /languages/
 License: GPL2
 
 Copyright 2013  Ashley Rich  (email : hello@ashleyrich.com)
+Copyright 2019  Thomas Fellinger  (email : office@netzgestaltung.at)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -164,8 +165,8 @@ class Alpha_Downloads {
 			define( 'ALPHA_PLUGIN_DIR', plugin_dir_path( $this->path ) );
 		}
 
-		if ( ! defined( 'DELIGHTFUL_DOWNLOADS_API' ) ) {
-			define( 'DELIGHTFUL_DOWNLOADS_API', 'https://delightfuldownloads.com' );
+		if ( ! defined( 'ALPHA_DOWNLOADS_API' ) ) {
+			define( 'ALPHA_DOWNLOADS_API', 'https://delightfuldownloads.com' );
 		}
 	}
 

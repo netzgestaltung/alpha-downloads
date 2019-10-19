@@ -142,15 +142,15 @@ abstract class Alpha_Downloads_Addon {
 		add_action( 'admin_init', array( $this, 'load_updater' ) );
 
 		// Filters
-		add_filter( 'dedo_settings_options', array( $this, 'add_settings_option' ) );
-		add_filter( 'dedo_validate_settings', array( $this, 'update_license' ) );
+		add_filter( 'alpha_settings_options', array( $this, 'add_settings_option' ) );
+		add_filter( 'alpha_validate_settings', array( $this, 'update_license' ) );
 	}
 
 	/**
 	 * Load updater
 	 */
 	public function load_updater() {
-		$this->updater = new EDD_SL_Plugin_Updater( DELIGHTFUL_DOWNLOADS_API, $this->file, array(
+		$this->updater = new EDD_SL_Plugin_Updater( ALPHA_DOWNLOADS_API, $this->file, array(
 			'version' 	=> $this->version,
 			'license' 	=> $this->get_option( $this->get_license_key() ),
 			'item_name' => $this->name,
@@ -215,7 +215,7 @@ abstract class Alpha_Downloads_Addon {
 	 * Show license error
 	 */
 	protected function show_license_error() {
-		global $dedo_notices;
+		global $alpha_notices;
 
 		$status  = $this->get_license_status();
 		$message = '<strong>' . sprintf( __( '%s License Error', 'alpha-downloads' ), $this->name ) . '</strong> &mdash; ';
@@ -238,7 +238,7 @@ abstract class Alpha_Downloads_Addon {
 			$message .= __( 'Please check your license key and try again.', 'alpha-downloads' );
 		}
 
-		$dedo_notices->add( 'error', $message );
+		$alpha_notices->add( 'error', $message );
 	}
 
 	/**
@@ -257,7 +257,7 @@ abstract class Alpha_Downloads_Addon {
 			'url'        => home_url(),
 		);
 
-		$response = wp_remote_post( DELIGHTFUL_DOWNLOADS_API, array( 'timeout' => 15, 'sslverify' => false, 'body' => $args ) );
+		$response = wp_remote_post( ALPHA_DOWNLOADS_API, array( 'timeout' => 15, 'sslverify' => false, 'body' => $args ) );
 
 		if ( is_wp_error( $response ) ) {
 			return false;
@@ -294,14 +294,14 @@ abstract class Alpha_Downloads_Addon {
 	 * @return mixed
 	 */
 	public function get_option( $key, $default = '' ) {
-		global $dedo_options, $dedo_default_options;
+		global $alpha_options, $alpha_default_options;
 
-		if ( isset( $dedo_options[ $key ] ) ) {
-			return $dedo_options[ $key ];
+		if ( isset( $alpha_options[ $key ] ) ) {
+			return $alpha_options[ $key ];
 		}
 
-		if ( isset( $dedo_default_options[ $key ] ) ) {
-			return $dedo_default_options[ $key ];
+		if ( isset( $alpha_default_options[ $key ] ) ) {
+			return $alpha_default_options[ $key ];
 		}
 
 		return $default;
