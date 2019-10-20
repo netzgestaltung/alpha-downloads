@@ -4,7 +4,7 @@ Alpha Downloads is a Fork of [Delightful Downloads](https://de.wordpress.org/plu
 
 ## Bugs
 
-If you find a bug, please raise it [here](https://github.com/A5hleyRich/delightful-downloads/issues).
+If you find a bug, please raise it [here](https://github.com/netzgestaltung/alpha-downloads/issues).
 
 ## Contributions
 
