@@ -136,8 +136,6 @@ function alpha_render_page_settings() {
 	
 		</div>
 
-		<?php alpha_render_part_sidebar(); ?>
-
 	</div>
 	
 	<?php
@@ -228,42 +226,6 @@ foreach ( $alpha_options as $key => $value ) {
 
 }
 
-/**
- * Render Sidebar
- *
- * @since  1.5
- */
-function alpha_render_part_sidebar() {
-	if ( apply_filters( 'alpha_admin_sidebar', true ) ) : ?>
-
-		<?php $current_user = wp_get_current_user(); ?>
-
-		<div id="alpha-settings-sidebar">
-			<div class="pro-version">
-				<h4><?php _e( 'News and Updates', 'alpha-downloads' ); ?></h4>
-				<p><?php _e( "Want to be the first to know about future add-ons? Subscribe to keep informed and receive your 20% discount when they’re released!", 'alpha-downloads' ); ?></p>
-
-				<form method="post" action="http://ashleyrich.us5.list-manage.com/subscribe/post" target="_blank">
-					<input type="hidden" name="u" value="ace6f39e2bb7270b9ca7a21bc">
-					<input type="hidden" name="id" value="003e1f6906">
-					<label for="MERGE0">Email:</label>
-					<input type="email" name="MERGE0" id="MERGE0" class="regular-text" value="<?php echo $current_user->user_email; ?>">
-					<label for="MERGE1">First Name:</label>
-					<input type="text" name="MERGE1" id="MERGE1" class="regular-text" value="<?php echo $current_user->user_firstname; ?>">
-					<label for="MERGE2">Last Name:</label>
-					<input type="text" name="MERGE2" id="MERGE2" class="regular-text" value="<?php echo $current_user->user_lastname; ?>">
-					<button class="button button-primary"><?php _e( 'Keep me informed', 'alpha-downloads' ); ?></button>
-				</form>
-				<small><?php _e( 'I will not use your email for anything else and you can unsubscribe at anytime.' ); ?></small>
-			</div>
-
-			<h4><?php _e( 'Help and Support', 'alpha-downloads' ); ?></h4>
-			<p><?php printf( __( 'Having issues? Check out the %sdocumentation%s. If you can\'t find a solution, please raise an issue on the %ssupport forums%s.', 'alpha-downloads' ), '<a href="https://alphadownloads.com/documentation/">', '</a>', '<a href="https://wordpress.org/support/plugin/alpha-downloads">', '</a>' ); ?></p>
-		</div>
-
-	<?php endif;
-
-}
 
 /**
  * Render Settings Sections

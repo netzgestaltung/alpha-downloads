@@ -36,7 +36,7 @@ function alpha_download_post_type() {
 
 	$args = array(
 		'labels'          => apply_filters( 'alpha_ddownload_labels', $labels ),
-		'public'          => false,
+		'public'          => true,
 		'show_ui'         => true,
 		'show_in_menu'    => true,
 		'menu_icon'       => 'dashicons-download',
@@ -46,6 +46,21 @@ function alpha_download_post_type() {
 	register_post_type( 'alpha_download', apply_filters( 'alpha_ddownload_args', $args ) );
 }
 add_action( 'init', 'alpha_download_post_type' );
+
+/**
+ * Register single template for Download Post Type
+ *
+ * @since  alpha 0.6.7
+ */
+function alpha_download_template($single_template) {
+  $alpha_download_template = ALPHA_PLUGIN_DIR . '/templates/single-alpha_download.php';
+  
+  if ( file_exists($alpha_download_template) ) {
+    $single_template = $alpha_download_template;
+  }
+  return $single_template;
+}
+add_action( 'single-alpha_download_template', 'alpha_download_template' );
 
 /**
  * Download Post Type Column Headings

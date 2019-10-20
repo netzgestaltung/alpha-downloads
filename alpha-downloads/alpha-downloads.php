@@ -120,7 +120,6 @@ class Alpha_Downloads {
 	 * Include all the classes used by the plugin
 	 */
 	protected function includes() {
-		require_once dirname( $this->path ) . '/classes/class-addon.php';
 		require_once dirname( $this->path ) . '/includes/class-alpha-cache.php';
 		require_once dirname( $this->path ) . '/includes/class-alpha-logging.php';
 		require_once dirname( $this->path ) . '/includes/class-alpha-statistics.php';
@@ -142,7 +141,6 @@ class Alpha_Downloads {
 			require_once dirname( $this->path ) . '/includes/admin/dashboard.php';
 			require_once dirname( $this->path ) . '/includes/admin/media-button.php';
 			require_once dirname( $this->path ) . '/includes/admin/meta-boxes.php';
-			require_once dirname( $this->path ) . '/includes/admin/page-addons.php';
 			require_once dirname( $this->path ) . '/includes/admin/page-settings.php';
 			require_once dirname( $this->path ) . '/includes/admin/page-statistics.php';
 			require_once dirname( $this->path ) . '/includes/admin/upgrades.php';
@@ -165,9 +163,6 @@ class Alpha_Downloads {
 			define( 'ALPHA_PLUGIN_DIR', plugin_dir_path( $this->path ) );
 		}
 
-		if ( ! defined( 'ALPHA_DOWNLOADS_API' ) ) {
-			define( 'ALPHA_DOWNLOADS_API', 'https://delightfuldownloads.com' );
-		}
 	}
 
 	/**
