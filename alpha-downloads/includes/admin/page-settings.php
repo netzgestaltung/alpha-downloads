@@ -300,6 +300,22 @@ function alpha_settings_open_browser_field() {
 }
 
 /**
+ * Render use template field
+ *
+ * @since  alpha 0.6.7
+ */
+function alpha_settings_use_template_field() {
+	global $alpha_options;
+	$checked = absint( $alpha_options['use_template'] );
+	?>
+
+	<label for="use_template_true"><input name="alpha-downloads[use_template]" id="use_template_true" type="radio" value="1" <?php echo ( 1 === $checked ) ? 'checked' : ''; ?> /> <?php _e( 'Yes', 'alpha-downloads' ); ?></label>
+	<label for="use_template_false"><input name="alpha-downloads[use_template]" id="use_template_false" type="radio" value="0" <?php echo ( 0 === $checked ) ? 'checked' : ''; ?> /> <?php _e( 'No', 'alpha-downloads' ); ?></label>
+	<p class="description"><?php _e( 'To use your own template copy /templates/single-alpha_downloads.php to your themes or child themes folder. Start editing.', 'alpha-downloads' ); ?></p>
+	<?php
+}
+
+/**
  * Render block user agents field
  *
  * @since  1.3

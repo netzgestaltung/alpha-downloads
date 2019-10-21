@@ -67,6 +67,12 @@ function alpha_get_options() {
 			'type'    => 'radio',
 			'default' => 0,
 		),
+		'use_template'        => array(
+			'name'    => __( 'Use plugins template for single downloads', 'alpha-downloads' ),
+			'tab'     => 'general',
+			'type'    => 'radio',
+			'default' => 0,
+		),
 		'block_agents'        => array(
 			'name'    => __( 'Block User Agents', 'alpha-downloads' ),
 			'tab'     => 'general',

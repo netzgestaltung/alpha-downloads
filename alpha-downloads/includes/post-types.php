@@ -55,8 +55,12 @@ add_action( 'init', 'alpha_download_post_type' );
  * @since  alpha 0.6.7
  */
 function alpha_download_template($single_template) {
+  global $alpha_options;
+  
   $alpha_download_template = ALPHA_PLUGIN_DIR . 'templates/single-alpha_download.php';
-  return get_post_type() === 'alpha_download' && file_exists($alpha_download_template) ? $alpha_download_template: $single_template;
+  $use_template = ( $alpha_options['use_template'] && get_post_type() === 'alpha_download' && file_exists($alpha_download_template) );
+  
+  return $use_template ? $alpha_download_template: $single_template;
 }
 add_filter('single_template', 'alpha_download_template');
 
