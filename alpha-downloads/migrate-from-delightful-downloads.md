@@ -44,6 +44,9 @@ UPDATE `alfa_wp_postmeta` SET `meta_key` = '_alpha_file_count' WHERE `meta_key` 
 UPDATE `alfa_wp_postmeta` SET `meta_key` = '_alpha_file_options' WHERE `meta_key` = '_dedo_file_options';
 https://trickspanda.com/rename-custom-fields-wordpress/
 
+## Backend
+Go to Settings->Permalinks and press the "Save" button once.
+
 
 
 

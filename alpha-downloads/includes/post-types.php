@@ -49,18 +49,52 @@ add_action( 'init', 'alpha_download_post_type' );
 
 /**
  * Register single template for Download Post Type
- *
+ * @see
+ * - https://wordpress.stackexchange.com/questions/17385/custom-post-type-templates-from-plugin-folder/350859#350859
+ * - https://wpshout.com/hacking-the-wordpress-template-hierarchy/
  * @since  alpha 0.6.7
  */
 function alpha_download_template($single_template) {
-  $alpha_download_template = ALPHA_PLUGIN_DIR . '/templates/single-alpha_download.php';
-  
-  if ( file_exists($alpha_download_template) ) {
-    $single_template = $alpha_download_template;
-  }
-  return $single_template;
+  $alpha_download_template = ALPHA_PLUGIN_DIR . 'templates/single-alpha_download.php';
+  return get_post_type() === 'alpha_download' && file_exists($alpha_download_template) ? $alpha_download_template: $single_template;
 }
-add_action( 'single-alpha_download_template', 'alpha_download_template' );
+add_filter('single_template', 'alpha_download_template');
+
+
+/**
+ * Redirect single download post request when not allowed
+ * @see
+ * - https://wpshout.com/hacking-the-wordpress-template-hierarchy/
+ * - permission handling from /includes/process-download.php method alpha_download_process
+ * @since  alpha 0.6.7
+ */
+function alpha_download_template_redirect() {
+	$file_options = get_post_meta($post->ID, '_alpha_file_options', true);
+
+	// Check only single post request for alpha_download post type
+	if ( is_single() && get_post_type() === 'alpha_download' ) {
+	 	// Check for members only
+	  if ( !alpha_download_permission($file_options) ) {
+	    global $alpha_options;	  
+      $post = get_post();
+      
+		  do_action('ddownload_download_permission', $post->ID);
+		  
+	    // Get redirect location
+	    $redirect_ID = isset($file_options['members_only_redirect']) ? $file_options['members_only_redirect'] : $alpha_options['members_only_redirect'];
+
+		  // Try to redirect
+		  if ( $redirect_location = get_permalink($redirect_ID) ) {
+			  wp_safe_redirect($redirect_location);
+			  exit();
+		  } else {
+			  // Invalid page provided, show error message
+			  wp_die(__('Please login to download this file!', 'alpha-downloads'));
+		  }
+    }
+  }
+}
+add_action('template_redirect', 'alpha_download_template_redirect');
 
 /**
  * Download Post Type Column Headings
