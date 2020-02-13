@@ -39,67 +39,33 @@ function alpha_download_post_type() {
 		'public'          => true,
 		'show_ui'         => true,
 		'show_in_menu'    => true,
+		'has_archive'     => true,
 		'menu_icon'       => 'dashicons-download',
 		'capability_type' => apply_filters( 'alpha_ddownload_cap', 'post' ),
-		'supports'        => apply_filters( 'alpha_ddownload_supports', array( 'title' ) ),
+		'supports'        => apply_filters( 'alpha_ddownload_supports', array( 'title', 'editor', 'thumbnail', 'comments', 'revisions' ) ),
 	);
 	register_post_type( 'alpha_download', apply_filters( 'alpha_ddownload_args', $args ) );
 }
 add_action( 'init', 'alpha_download_post_type' );
 
 /**
- * Register single template for Download Post Type
+ * Manipulate archive posts
+ * when not logged in, show free downloads first
  * @see
- * - https://wordpress.stackexchange.com/questions/17385/custom-post-type-templates-from-plugin-folder/350859#350859
- * - https://wpshout.com/hacking-the-wordpress-template-hierarchy/
- * @since  alpha 0.6.7
- */
-function alpha_download_template($single_template) {
-  global $alpha_options;
-  
-  $alpha_download_template = ALPHA_PLUGIN_DIR . 'templates/single-alpha_download.php';
-  $use_template = ( $alpha_options['use_template'] && get_post_type() === 'alpha_download' && file_exists($alpha_download_template) );
-  
-  return $use_template ? $alpha_download_template: $single_template;
-}
-add_filter('single_template', 'alpha_download_template');
-
-
-/**
- * Redirect single download post request when not allowed
- * @see
- * - https://wpshout.com/hacking-the-wordpress-template-hierarchy/
+ * - https://github.com/netzgestaltung/wordpress-snippets/blob/master/redirect-template-by-permission.php
  * - permission handling from /includes/process-download.php method alpha_download_process
  * @since  alpha 0.6.7
  */
-function alpha_download_template_redirect() {
-	$file_options = get_post_meta($post->ID, '_alpha_file_options', true);
-
-	// Check only single post request for alpha_download post type
-	if ( is_single() && get_post_type() === 'alpha_download' ) {
-	 	// Check for members only
-	  if ( !alpha_download_permission($file_options) ) {
-	    global $alpha_options;	  
-      $post = get_post();
-      
-		  do_action('ddownload_download_permission', $post->ID);
-		  
-	    // Get redirect location
-	    $redirect_ID = isset($file_options['members_only_redirect']) ? $file_options['members_only_redirect'] : $alpha_options['members_only_redirect'];
-
-		  // Try to redirect
-		  if ( $redirect_location = get_permalink($redirect_ID) ) {
-			  wp_safe_redirect($redirect_location);
-			  exit();
-		  } else {
-			  // Invalid page provided, show error message
-			  wp_die(__('Please login to download this file!', 'alpha-downloads'));
-		  }
+function alpha_pre_get_posts($query) {  
+  if ( !is_admin() && $query->is_main_query() && is_archive() && $query->get('post_type') === 'alpha_download' ) {
+    if ( !alpha_download_permission(array()) ) {
+      $query->set('meta_key','_alpha_file_options');
+      $query->set('orderby','meta_value');
+      $query->set('posts_per_page', 50);
     }
   }
 }
-add_action('template_redirect', 'alpha_download_template_redirect');
-
+add_action('pre_get_posts', 'alpha_pre_get_posts', 10, 1);
 /**
  * Download Post Type Column Headings
  *

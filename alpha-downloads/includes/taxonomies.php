@@ -20,8 +20,8 @@ function alpha_download_taxonomies() {
 
 	// Register download category taxonomy
 	$labels = array(
-		'name'				=> __( 'Download Categories', 'alpha-downloads' ),
-		'singular_name'		=> __( 'Download Category', 'alpha-downloads' ),
+		'name'				=> __( 'Kategorien', 'alpha-downloads' ),
+		'singular_name'		=> __( 'Kategorie', 'alpha-downloads' ),
 		'menu_name'			=> __( 'Categories', 'alpha-downloads' ),
 		'all_items'			=> __( 'All Categories', 'alpha-downloads' ),
 		'edit_item'			=> __( 'Edit Category', 'alpha-downloads' ),
@@ -44,8 +44,8 @@ function alpha_download_taxonomies() {
 
 	// Register download tag taxonomy
 	$labels = array(
-		'name'				=> __( 'Download Tags', 'alpha-downloads' ),
-		'singular_name'		=> __( 'Download Tag', 'alpha-downloads' ),
+		'name'				=> __( 'Themen', 'alpha-downloads' ),
+		'singular_name'		=> __( 'Thema', 'alpha-downloads' ),
 		'menu_name'			=> __( 'Tags', 'alpha-downloads' ),
 		'all_items'			=> __( 'All Tags', 'alpha-downloads' ),
 		'edit_item'			=> __( 'Edit Tag', 'alpha-downloads' ),

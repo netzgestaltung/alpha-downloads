@@ -209,21 +209,18 @@ function alpha_download_valid( $download_id ) {
  * @since  1.0
  */
 function alpha_download_permission( $options ) {
-	global $alpha_options;
-
 	// First check per-download settings, else revert to global setting
-	$members_only = ( isset( $options['members_only'] ) ) ? $options['members_only'] : $alpha_options['members_only'];
+	$alpha_options = get_option('alpha-downloads');
+	$members_only = isset($options['members_only']) ? $options['members_only'] : $alpha_options['members_only'];
 
-	if ( $members_only ) {
+	if ( filter_var($members_only, FILTER_VALIDATE_BOOLEAN) ) {
 		// Check user is logged in
 		if ( is_user_logged_in() ) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-
 	return true;
 }
 
