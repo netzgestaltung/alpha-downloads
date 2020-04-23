@@ -10,12 +10,12 @@ jQuery( document ).ready( function( $ ) {
 	var ALPHA_Admin = {
 
 		init: function() {
-			
+
 			this.confirmAction();
 		},
 
 		confirmAction: function() {
-			
+
 			var $confirmAction = $( '.alpha_confirm_action' );
 
 			$confirmAction.on( 'click', function( e ) {
@@ -85,7 +85,7 @@ jQuery( document ).ready( function( $ ) {
 			self = this;
 
 			$( 'body' ).on( 'openModal', function() {
-				
+
 				// Add background
 				$( 'body' ).append( $( '<div id="alpha-modal-background" style="display: none"></div>' ).fadeTo( 300, .7 ) );
 
@@ -130,7 +130,7 @@ jQuery( document ).ready( function( $ ) {
 		$popularDownloadsError: $( '#ddownload-popular .error' ),
 
 		init: function( options ) {
-			
+
 			this.options = options;
 			this.countDownloadsGet();
 			this.popularDownloadsChange();
@@ -170,7 +170,7 @@ jQuery( document ).ready( function( $ ) {
 
 				// Fade in counts list
 				$( '#ddownload-count li' ).fadeTo( 600, 1 );
-				
+
 			}
 			// Request returned error
 			else {
@@ -180,7 +180,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Add event handler to popular downloads dropdown
 		popularDownloadsChange: function() {
-			
+
 			this.$popularDownloadsDropdown.on( 'change', function() {
 				ALPHA_Dashboard.popularDownloadsGet( $( this ).val() );
 			} );
@@ -188,7 +188,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Send query to WP, retrieving top 5 downloads
 		popularDownloadsGet: function( value ) {
-			
+
 			var self = this;
 
 			// Show loading
@@ -216,7 +216,7 @@ jQuery( document ).ready( function( $ ) {
 		// Update popular downloads on screen
 		popularDownloadsSuccess: function( response ) {
 
-			// Hide error 
+			// Hide error
 			this.$popularDownloadsError.fadeOut( 300 );
 
 			// Hide loading
@@ -224,7 +224,7 @@ jQuery( document ).ready( function( $ ) {
 
 			// Request successful
 			if ( 'success' === response.status ) {
-				
+
 				var output;
 
 				// Results returned
@@ -234,7 +234,7 @@ jQuery( document ).ready( function( $ ) {
 
 					// Success, build list
 					$.each( response.content, function( key, value) {
-					
+
 						output += '<li>';
 						output += '<a href="' + value.url + '"><span class="position">' + ( key + 1 ) + '.</span>' + value.title + ' <span class="count">' + value.downloads + '</span></a>';
 						output += '</li>';
@@ -251,12 +251,12 @@ jQuery( document ).ready( function( $ ) {
 				// Slide out and remove old list
 				$( '#popular-downloads' ).slideUp( 300, function() {
 					$( this ).remove();
-					
+
 					// Insert new list and fade in
 					$( output ).insertAfter( '#ddownload-popular h4' );
 					$( '#popular-downloads' ).slideDown( 300 );
 				});
-				
+
 			}
 			// Request returned error
 			else {
@@ -271,7 +271,7 @@ jQuery( document ).ready( function( $ ) {
 			this.$popularDownloadsError.text( this.options.errorText ).fadeIn( 300 );
 		}
 	};
-	
+
 	// Init Dashboard if serialized WP array available
 	if ( 'undefined' !== typeof ALPHADashboardOptions ) {
 		ALPHA_Dashboard.init( ALPHADashboardOptions );

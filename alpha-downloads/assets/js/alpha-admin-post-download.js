@@ -33,7 +33,7 @@ jQuery( document ).ready( function( $ ){
 
 		addFile: function( url ) {
 			$( '#alpha-file-url' ).val( url );
-			
+
 			// Set default states
 			$( '.file-icon img' ).attr( 'src', this.options.default_icon );
 			$( '.file-name' ).html( '--' );
@@ -73,20 +73,20 @@ jQuery( document ).ready( function( $ ){
 			$( '.file-status .status' ).removeClass( 'local remote warning' ).addClass( 'spinner' );
 
 			$.ajax( {
-				
+
 				url: self.options.ajaxURL,
-				
+
 				data: {
 					action: self.options.action,
 					nonce: self.options.nonce,
 					url: url
 				},
-				
+
 				dataType: 'json',
-				
+
 				success: function( response ) {
 					$( '.file-name' ).html( response.content.filename );
-					
+
 					if ( 'success' == response.status ) {
 						// Update file details
 						$( '.file-icon img' ).attr( 'src', response.content.icon );
@@ -140,17 +140,17 @@ jQuery( document ).ready( function( $ ){
 			this.uploader.bind( 'FilesAdded', function( up, file ) {
 				self.$container.addClass( 'uploading' );
 				self.$progressError.hide();
-				
+
 				up.refresh();
 				up.start();
 			} );
-			
+
 			// Progress bar
 			this.uploader.bind( 'UploadProgress', function( up, file ) {
 				self.$progressPercent.css( 'width', file.percent + '%' );
 				self.$progressText.html( file.percent + '%' );
-			} );	
-			
+			} );
+
 			// File uploaded
 			this.uploader.bind( 'FileUploaded', function( up, file, response ) {
 				var response = $.parseJSON( response.response );
@@ -164,19 +164,23 @@ jQuery( document ).ready( function( $ ){
 		 		}
 		 		else {
 			 		ALPHA_Admin_Download.addFile( response.file.url );
-			 		
+			 		if ( response.file.hasOwnProperty('thumbnail') && response.file.thumbnail !== false ) {
+  			 		if ( response.file.thumbnail.hasOwnProperty('meta_box') && response.file.thumbnail.meta_box !== false ) {
+              WPSetThumbnailHTML(response.file.thumbnail.meta_box);
+  			 		}
+			 		}
 			 		// Close modal and hide progress bar
 			 		setTimeout( function() {
 			 			$( 'body' ).trigger( 'closeModal' );
-			 				
+
 			 			setTimeout( function() {
 			 				self.$container.removeClass( 'uploading' );
 			 			}, 300 );
-			 
+
 			 		}, 1000 );
 		 		}
 			} );
-			
+
 			// Error
 			this.uploader.bind( 'Error', function( up, err ) {
 				self.$progressError. html( '<p>' + err.message + '</p>' ).show();
@@ -190,7 +194,7 @@ jQuery( document ).ready( function( $ ){
 
 	// Existing File Modal
 	ALPHA_Existing_Modal = {
-		
+
 		$file_url: 	$( '#alpha-file-url' ),
 		$confirm: 	$( '#alpha-select-done' ),
 

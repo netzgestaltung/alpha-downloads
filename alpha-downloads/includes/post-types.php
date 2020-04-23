@@ -36,6 +36,7 @@ function alpha_download_post_type() {
 
 	$args = array(
 		'labels'          => apply_filters( 'alpha_ddownload_labels', $labels ),
+		'description'     => __('Hier finden Sie eine umfassende Sammlung an erprobten Materialien aus der Basisbildungspraxis', 'sandbox'),
 		'public'          => true,
 		'show_ui'         => true,
 		'show_in_menu'    => true,
@@ -44,9 +45,9 @@ function alpha_download_post_type() {
 		'capability_type' => apply_filters( 'alpha_ddownload_cap', 'post' ),
 		'supports'        => apply_filters( 'alpha_ddownload_supports', array( 'title', 'editor', 'thumbnail', 'comments', 'revisions' ) ),
 	);
-	register_post_type( 'alpha_download', apply_filters( 'alpha_ddownload_args', $args ) );
+  register_post_type( 'alpha_download', apply_filters( 'alpha_ddownload_args', $args ) );
 }
-add_action( 'init', 'alpha_download_post_type' );
+add_action( 'init', 'alpha_download_post_type', 13 );
 
 /**
  * Manipulate archive posts
@@ -56,7 +57,7 @@ add_action( 'init', 'alpha_download_post_type' );
  * - permission handling from /includes/process-download.php method alpha_download_process
  * @since  alpha 0.6.7
  */
-function alpha_pre_get_posts($query) {  
+function alpha_pre_get_posts($query) {
   if ( !is_admin() && $query->is_main_query() && is_archive() && $query->get('post_type') === 'alpha_download' ) {
     if ( !alpha_download_permission(array()) ) {
       $query->set('meta_key','_alpha_file_options');

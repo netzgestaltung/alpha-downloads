@@ -96,10 +96,10 @@ function alpha_meta_box_download( $post ) {
 
 	$file_url = get_post_meta( $post->ID, '_alpha_file_url', true );
 	$file_url = ( false != $file_url ) ? $file_url : '';
-	
+
 	$file_size = get_post_meta( $post->ID, '_alpha_file_size', true );
 	$file_size = ( false != $file_size ) ? size_format( $file_size, 1 ) : '';
-	
+
 	$file_count = get_post_meta( $post->ID, '_alpha_file_count', true );
 	$file_count = ( false != $file_count ) ? $file_count : 0;
 
@@ -122,7 +122,7 @@ function alpha_meta_box_download( $post ) {
 		'browse_button'       => 'alpha-upload-button',
 		'container'           => 'alpha-upload-container',
 		'drop_element'		  => 'alpha-drag-drop-area',
-		'file_data_name'      => 'async-upload',            
+		'file_data_name'      => 'async-upload',
 		'multiple_queues'     => false,
 		'multi_selection'	  => false,
 		'max_file_size'       => wp_max_upload_size() . 'b',
@@ -153,14 +153,14 @@ function alpha_meta_box_download( $post ) {
 	<script type="text/javascript">
 		var updateStatusArgs = <?php echo json_encode( $status_args ); ?>;
 	</script>
-	
-	<div id="alpha-new-download" style="<?php echo ( !isset( $file_url ) || empty( $file_url ) ) ? 'display: block;' : 'display: none;'; ?>">		
+
+	<div id="alpha-new-download" style="<?php echo ( !isset( $file_url ) || empty( $file_url ) ) ? 'display: block;' : 'display: none;'; ?>">
 		<a href="#alpha-upload-modal" class="button alpha-modal-action"><?php _e( 'Upload File', 'alpha-downloads' ); ?></a>
 		<a href="#alpha-select-modal" class="button alpha-modal-action select-existing"><?php _e( 'Existing File', 'alpha-downloads' ); ?></a>
 	</div>
-	<div id="alpha-existing-download" style="<?php echo ( isset( $file_url ) && !empty( $file_url ) ) ? 'display: block;' : 'display: none;'; ?>">		
+	<div id="alpha-existing-download" style="<?php echo ( isset( $file_url ) && !empty( $file_url ) ) ? 'display: block;' : 'display: none;'; ?>">
 		<div class="left-panel">
-			<div class="file-icon">	
+			<div class="file-icon">
 				<img src="<?php echo alpha_get_file_icon( $file_url ); ?>" />
 			</div>
 			<div class="file-name"><?php echo alpha_get_file_name( $file_url ); ?></div>
@@ -193,7 +193,7 @@ function alpha_meta_box_download( $post ) {
 							<label for="members_only_inherit"><input name="members_only" id="members_only_inherit" type="radio" value <?php echo ( '' === $members_only ) ? 'checked' : ''; ?> /> <?php _e( 'Inherit', 'alpha-downloads' ); ?></label>
 							<p class="description"><?php _e( 'Allow only logged in users to download this file.' ); ?></p>
 							<div id="members_only_sub" class="alpha-sub-option" style="<?php echo ( 0 === $members_only ) ? 'display: none;' : ''; ?>">
-								<?php 
+								<?php
 
 								$args = array(
 									'name'						=> 'members_only_redirect',
@@ -203,7 +203,7 @@ function alpha_meta_box_download( $post ) {
 									'option_none_value'			=> 	'',
 									'echo'						=> 0
 								);
-								
+
 								$list = wp_dropdown_pages( $args );
 
 								// Add option groups
@@ -212,7 +212,7 @@ function alpha_meta_box_download( $post ) {
 								$list = explode( '</select>', $list );
 								$list = implode( '</optgroup></select>', $list );
 
-								echo $list; 
+								echo $list;
 								?>
 
 								<p class="description"><?php _e( 'The page to redirect non-members.' ); ?></p>
@@ -273,7 +273,7 @@ function alpha_meta_box_download( $post ) {
 		<div class="alpha-modal-content">
 			<h1><?php _e( 'Existing File', 'alpha-downloads' ); ?></h1>
 			<p><?php _e( 'Manually enter a file URL, or use the file browser.', 'alpha-downloads' ); ?></p>
-			<p>	
+			<p>
 				<?php wp_nonce_field( 'ddownload_file_save', 'ddownload_file_save_nonce' ); ?>
 				<input name="alpha-file-url" id="alpha-file-url" type="text" class="large-text" value="<?php echo $file_url; ?>" placeholder="<?php _e( 'File URL or path...', 'alpha-downloads' ); ?>" />
 			</p>
@@ -287,7 +287,7 @@ function alpha_meta_box_download( $post ) {
 	</div>
 
 	<?php
-	
+
 }
 
 /**
@@ -356,7 +356,7 @@ function alpha_meta_boxes_save( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
-	
+
 	// Check for other post types
 	if ( isset( $post->post_type ) && $post->post_type != 'alpha_download' ) {
 		return;
@@ -366,9 +366,9 @@ function alpha_meta_boxes_save( $post_id ) {
 	if ( !current_user_can( 'edit_post', $post_id ) ) {
 		return;
 	}
-	
+
 	// Check for file nonce
-	if ( isset( $_POST['ddownload_file_save_nonce'] ) && wp_verify_nonce( $_POST['ddownload_file_save_nonce'], 'ddownload_file_save' ) ) {	
+	if ( isset( $_POST['ddownload_file_save_nonce'] ) && wp_verify_nonce( $_POST['ddownload_file_save_nonce'], 'ddownload_file_save' ) ) {
 
 		$file_url = trim( $_POST['alpha-file-url'] );
 
@@ -380,7 +380,7 @@ function alpha_meta_boxes_save( $post_id ) {
 		 * when saving a file.
 		 */
 		$cached_remotes = get_transient( 'alpha_remote_file_sizes' );
-		
+
 		// Check for cached remote file size
 		if ( false === $cached_remotes || !isset( $cached_remotes[esc_url_raw( $file_url )] ) ) {
 			$file = alpha_get_file_status( $file_url );

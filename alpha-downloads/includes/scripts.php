@@ -53,7 +53,7 @@ function alpha_admin_enqueue_scripts( $page ) {
 	$src = ALPHA_PLUGIN_URL . 'assets/js/alpha-admin-media-button' . $suffix . '.js';
 	wp_register_script( 'alpha-admin-js-media-button', $src, array( 'jquery', 'alpha-jqueryChosen' ), $version, true );
 
-	$src = ALPHA_PLUGIN_URL . 'assets/js/alpha-admin-post-download' . $suffix . '.js';
+	$src = ALPHA_PLUGIN_URL . 'assets/js/alpha-admin-post-download.js';
 	wp_register_script( 'alpha-admin-js-post-download', $src, array(
 		'jquery',
 		'plupload-all',
