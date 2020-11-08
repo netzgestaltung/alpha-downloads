@@ -753,7 +753,7 @@ function alpha_generate_pdf_thumbnail($source, $width=252){
   // source path must be available and not be a directory, mime type: application/pdf
   if ( file_exists($source) && !is_dir($source) && mime_content_type($source) === 'application/pdf' ) {
     $width  = intval($width); // only use as integer, default is 256
-    $height = $width*1.4142; // ISO 216 / DIN 476 / A4
+    $height = intval($width*1.4142); // ISO 216 / DIN 476 / A4
 
     // $img = wp_get_image_editor($source);
     // $img = new Imagick($source . '[' . $page . ']'); // [0] = first page, [1] = second page
